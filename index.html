@@ -1,0 +1,992 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>SAATHI AI — Sovereign Clinical AI Fusion & Modular Rollout Blueprint</title>
+<meta name="description" content="Executive presentation & live architecture configurator for SAATHI AI — Sovereign Clinical AI Fusion & Modular Rollout Blueprint." />
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: { obsidian: '#0B0F19' },
+        fontFamily: {
+          sans: ['Inter', 'system-ui', 'sans-serif'],
+          mono: ['"JetBrains Mono"', 'ui-monospace', 'monospace']
+        }
+      }
+    }
+  };
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet" />
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+<style>
+  :root { --emerald:#10B981; --indigo:#6366F1; --amber:#F59E0B; --obsidian:#0B0F19; }
+  html, body { background: var(--obsidian); color: #F8FAFC; }
+  body { -webkit-font-smoothing: antialiased; padding-bottom: 110px; }
+  ::selection { background: rgba(16,185,129,.35); color: #fff; }
+
+  .bg-aurora { position: fixed; inset: 0; z-index: -2; pointer-events: none;
+    background:
+      radial-gradient(800px 520px at 8% -8%, rgba(16,185,129,.13), transparent 60%),
+      radial-gradient(900px 620px at 100% 6%, rgba(99,102,241,.15), transparent 60%),
+      radial-gradient(700px 500px at 50% 112%, rgba(245,158,11,.07), transparent 60%); }
+  .bg-grid { position: fixed; inset: 0; z-index: -1; pointer-events: none;
+    background-image: linear-gradient(rgba(148,163,184,.045) 1px, transparent 1px), linear-gradient(90deg, rgba(148,163,184,.045) 1px, transparent 1px);
+    background-size: 46px 46px;
+    -webkit-mask-image: radial-gradient(ellipse at 50% 30%, #000 30%, transparent 78%); }
+
+  .glass-card { background: rgba(15, 23, 42, 0.78); backdrop-filter: blur(14px); border: 1px solid rgba(51, 65, 85, 0.75); }
+  .glass-card-hover { transition: all 0.22s ease; }
+  .glass-card-hover:hover { border-color: rgba(16, 185, 129, 0.55); transform: translateY(-2px); }
+  .drop-active { border-color: #10B981 !important; background: rgba(16, 185, 129, 0.08) !important; }
+
+  @media print {
+    .no-print { display: none !important; }
+    #print-sheet { display: block !important; background: #fff !important; color: #000 !important; }
+    body { background: #fff !important; color: #000 !important; padding-bottom: 0 !important; }
+  }
+</style>
+</head>
+<body class="font-sans">
+<div class="bg-aurora no-print"></div>
+<div class="bg-grid no-print"></div>
+
+<!-- STICKY TOP NAVBAR -->
+<header class="sticky top-0 z-40 bg-slate-950/85 backdrop-blur-md border-b border-slate-800/80 no-print">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-4">
+    <div class="flex items-center gap-3">
+      <div class="w-9 h-9 rounded-xl bg-emerald-500/15 border border-emerald-500/40 flex items-center justify-center text-emerald-400 font-bold">S</div>
+      <div>
+        <div class="text-sm font-bold tracking-tight text-white flex items-center gap-2">
+          SAATHI AI <span class="text-[10px] font-mono uppercase px-2 py-0.5 rounded bg-emerald-500/15 text-emerald-300 border border-emerald-500/30">Clinical AI Fusion v6</span>
+        </div>
+        <div class="text-[11px] text-slate-400">Support the Human Clinician, Never Replace the Human Clinician</div>
+      </div>
+    </div>
+    <nav class="hidden lg:flex items-center gap-1 text-xs text-slate-300">
+      <a href="#sec-hero" class="px-2.5 py-1.5 rounded-lg hover:bg-slate-800/70">A. Market Reality</a>
+      <a href="#sec-translator" class="px-2.5 py-1.5 rounded-lg hover:bg-slate-800/70">B. Tech Translator</a>
+      <a href="#sec-rebuttal" class="px-2.5 py-1.5 rounded-lg bg-emerald-500/10 text-emerald-300 border border-emerald-500/30">C. Audit & Why Tier 2</a>
+      <a href="#sec-rejected" class="px-2.5 py-1.5 rounded-lg hover:bg-slate-800/70">D. Rejected Hype</a>
+      <a href="#sec-flow" class="px-2.5 py-1.5 rounded-lg hover:bg-slate-800/70">E. 9-Step Flow</a>
+      <a href="#sec-models" class="px-2.5 py-1.5 rounded-lg hover:bg-slate-800/70">F. 50k-Note AI</a>
+      <a href="#sec-builder" class="px-2.5 py-1.5 rounded-lg bg-indigo-500/15 text-indigo-300 border border-indigo-500/30 font-semibold">G. Live Builder</a>
+      <a href="#sec-tco" class="px-2.5 py-1.5 rounded-lg hover:bg-slate-800/70">H. TCO & Break-Even</a>
+    </nav>
+    <a href="#sec-builder" class="text-xs font-semibold px-3.5 py-2 rounded-lg bg-emerald-500 text-slate-950 hover:bg-emerald-400 transition">Configure Tier 2</a>
+  </div>
+</header>
+
+<main class="max-w-7xl mx-auto px-4 sm:px-6 py-10 space-y-16 no-print">
+
+  <!-- SECTION A: HERO & INDIA MARKET REALITY -->
+  <section id="sec-hero" class="space-y-8">
+    <div class="glass-card rounded-2xl p-6 sm:p-8 border-emerald-500/30">
+      <div class="flex flex-wrap items-center gap-2 text-xs font-mono uppercase tracking-wider text-emerald-400 mb-3">
+        <span>Section A • Executive Architecture & Clinical Governance Blueprint</span>
+        <span class="text-slate-600">|</span>
+        <span class="text-amber-300">DPDP Act 2023 • NMC Telemedicine • HIPAA / GDPR Ready</span>
+      </div>
+      <h1 class="text-2xl sm:text-4xl font-extrabold tracking-tight text-white leading-tight">
+        SAATHI AI — Structured Mental Wellness System &amp; Sovereign Clinical "AI Fusion"
+      </h1>
+      <p class="mt-3 text-slate-300 text-sm sm:text-base max-w-4xl leading-relaxed">
+        Designed around measurable patient improvement rather than unstructured chatting. Saathi AI combines a <strong>2-Stage Validated Assessment</strong>, a <strong>4-Dimensional Deterministic Python Scoring Engine</strong>, <strong>Structured Goal-Oriented Programs</strong>, and a <strong>15–20 Minute Clinician Head-Start Co-Pilot</strong>.
+      </p>
+
+      <!-- 4 KPI CARDS -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-6">
+        <div class="p-4 rounded-xl bg-slate-900/90 border border-slate-800">
+          <div class="text-xs text-slate-400 font-mono">INDIA CLINICIAN SCALE</div>
+          <div class="text-xl font-extrabold text-emerald-400 mt-1">250 &rarr; 5,000+ Doctors</div>
+          <div class="text-xs text-slate-400 mt-1">Calibrated for India's ~9,000 Psychiatrists, ~4,000 RCI Psychologists &amp; 30k Counsellors.</div>
+        </div>
+        <div class="p-4 rounded-xl bg-slate-900/90 border border-slate-800">
+          <div class="text-xs text-slate-400 font-mono">4-DIMENSIONAL TRIAGE</div>
+          <div class="text-xl font-extrabold text-indigo-400 mt-1">100% Deterministic</div>
+          <div class="text-xs text-slate-400 mt-1">Python scores Severity, Functional Impairment, Urgency &amp; Safety Override (Zero LLM guesswork).</div>
+        </div>
+        <div class="p-4 rounded-xl bg-slate-900/90 border border-slate-800">
+          <div class="text-xs text-slate-400 font-mono">PRE-ROUTER CRISIS GATE</div>
+          <div class="text-xl font-extrabold text-amber-400 mt-1">&lt; 50 Milliseconds</div>
+          <div class="text-xs text-slate-400 mt-1">Intercepts direct, indirect &amp; Hinglish self-harm before routing. 100% FREE (never paywalled).</div>
+        </div>
+        <div class="p-4 rounded-xl bg-slate-900/90 border border-slate-800">
+          <div class="text-xs text-slate-400 font-mono">PROPRIETARY DATA MOAT</div>
+          <div class="text-xl font-extrabold text-emerald-300 mt-1">50,000+ Doc Notes</div>
+          <div class="text-xs text-slate-400 mt-1">Pre-Inference NER PII Scrubber + LLM-Judge Filter for continual 70B/120B DPO training.</div>
+        </div>
+      </div>
+
+      <!-- CLINICIAN CAPACITY SIMULATOR -->
+      <div class="mt-6 p-5 rounded-xl bg-slate-950/80 border border-slate-800/90 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-4">
+        <div>
+          <div class="text-xs font-mono uppercase text-amber-400">India's Scarcity Bottleneck: Only ~9,000 Psychiatrists for 1.4 Billion Citizens</div>
+          <div class="text-sm font-semibold text-white mt-0.5">Simulate a Psychologist's 8-Hour Workday: Manual Intake vs. Saathi AI Pre-Session Brief</div>
+        </div>
+        <div class="flex items-center gap-2">
+          <button onclick="renderCapacity('manual')" id="cap-btn-manual" class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-800 text-slate-300">Today (Manual: 8 Patients/Day)</button>
+          <button onclick="renderCapacity('saathi')" id="cap-btn-saathi" class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-emerald-500 text-slate-950">With Saathi AI (16 Patients/Day • 2x Revenue)</button>
+        </div>
+      </div>
+      <div id="capacity-view" class="mt-3"></div>
+    </div>
+  </section>
+
+  <!-- SECTION B: PLAIN-ENGLISH TECH TRANSLATOR -->
+  <section id="sec-translator" class="space-y-4">
+    <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-3">
+      <div>
+        <div class="text-xs font-mono uppercase text-emerald-400">Section B • Executive Terminology Guide</div>
+        <h2 class="text-xl sm:text-2xl font-bold text-white">Plain-English Tech Translator (3-Lens View)</h2>
+        <p class="text-xs sm:text-sm text-slate-400">Switch any card between Plain-English Analogy, Business &amp; Profit ROI, and Audit-Ready Technical Spec.</p>
+      </div>
+      <div class="flex items-center gap-1.5 bg-slate-900 p-1 rounded-xl border border-slate-800 text-xs">
+        <button onclick="setGlobalLens('plain')" id="lens-plain" class="px-3 py-1.5 rounded-lg font-semibold bg-emerald-500 text-slate-950">1. Plain-English</button>
+        <button onclick="setGlobalLens('roi')" id="lens-roi" class="px-3 py-1.5 rounded-lg font-semibold text-slate-300 hover:bg-slate-800">2. Business ROI</button>
+        <button onclick="setGlobalLens('spec')" id="lens-spec" class="px-3 py-1.5 rounded-lg font-semibold text-slate-300 hover:bg-slate-800">3. Technical Spec</button>
+      </div>
+    </div>
+    <div id="translator-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"></div>
+  </section>
+
+  <!-- SECTION C: STAKEHOLDER AUDIT ALIGNMENT & WHY TIER 2 CANNOT BE CUT -->
+  <section id="sec-rebuttal" class="space-y-6">
+    <div class="glass-card rounded-2xl p-6 sm:p-8 border-indigo-500/40">
+      <div class="text-xs font-mono uppercase text-indigo-400">Section C • Direct Response to Stakeholder Feasibility Review</div>
+      <h2 class="text-xl sm:text-2xl font-bold text-white mt-1">How We Integrated the 24-Point Review — And Why Tier 2's Core Pillars Cannot Be Cut</h2>
+      <p class="text-xs sm:text-sm text-slate-300 mt-1">
+        We adopted <strong>100% of the clinical, ethical, and validation recommendations at ₹0 extra cost</strong> (Left Column), while providing concrete operational and financial proof of why cutting the Doctor Mobile App, the 70B Model, or Vector Memory breaks in real Indian clinical practice (Right Column).
+      </p>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-6">
+        <!-- LEFT: 5 ADOPTED IMPROVEMENTS -->
+        <div class="space-y-3">
+          <div class="text-xs font-mono uppercase px-3 py-1.5 rounded-lg bg-emerald-500/15 text-emerald-300 border border-emerald-500/30 inline-block">
+            ✅ 5 Clinical &amp; Procedural Refinements Adopted at ₹0 Extra Cost
+          </div>
+          <div class="p-4 rounded-xl bg-slate-900/90 border border-slate-800 space-y-1">
+            <div class="text-sm font-bold text-emerald-400">1. Free Preliminary Results &amp; Safety Guidance BEFORE Any Paywall</div>
+            <p class="text-xs text-slate-300">Updated Step 4 so users receive their Preliminary Assessment Summary, Estimated Severity, Functional Impact, and Essential Safety Guidance <strong>FOR FREE</strong> before seeing Paywall #1 (Subscription) or Paywall #2 (Doctor Consult). Crisis guidance (Level 5) is never paywalled.</p>
+          </div>
+          <div class="p-4 rounded-xl bg-slate-900/90 border border-slate-800 space-y-1">
+            <div class="text-sm font-bold text-emerald-400">2. Validated 2-Stage Instruments &amp; 4-Dimensional Scoring Matrix</div>
+            <p class="text-xs text-slate-300">Stage 1 captures principal concern, onset, frequency, daily impact, triggers &amp; expectations. Stage 2 triggers validated instruments (PHQ-9, GAD-7, ISI, PSS-10, WSAS, C-SSRS) scored across 4 distinct dimensions: <strong>Symptom Severity, Functional Impairment, Urgency, and Safety Override</strong>.</p>
+          </div>
+          <div class="p-4 rounded-xl bg-slate-900/90 border border-slate-800 space-y-1">
+            <div class="text-sm font-bold text-emerald-400">3. Structured Goal-Oriented Support Programmes (Not Endless Chat)</div>
+            <p class="text-xs text-slate-300">The AI Companion guides users through structured 2-to-4-week evidence-informed modules (e.g., <em>Public-Speaking Anxiety Track</em>: Trigger ID &rarr; Preparation Exercises &rarr; Manageable Practice Tasks &rarr; Progress Review).</p>
+          </div>
+          <div class="p-4 rounded-xl bg-slate-900/90 border border-slate-800 space-y-1">
+            <div class="text-sm font-bold text-emerald-400">4. Pre-Inference Text PII Scrubber (Beyond UUID Replacement)</div>
+            <p class="text-xs text-slate-300">Because replacing a name with a UUID does not anonymize a chat if a user types their name, employer, or city inside the message, our Pre-Inference NER/Regex Scrubber strips all identifying text before any AI model processes it.</p>
+          </div>
+          <div class="p-4 rounded-xl bg-slate-900/90 border border-slate-800 space-y-1">
+            <div class="text-sm font-bold text-emerald-400">5. Token-Level 2x Stress-Test &amp; Commercial Break-Even Financial Model</div>
+            <p class="text-xs text-slate-300">Full per-user token math, 2x heavy usage stress-testing, and subscriber break-even modeling are built into Section H below.</p>
+          </div>
+        </div>
+
+        <!-- RIGHT: 4 REBUTTALS ON WHY TIER 2 PILLARS CANNOT BE CUT -->
+        <div class="space-y-3">
+          <div class="text-xs font-mono uppercase px-3 py-1.5 rounded-lg bg-amber-500/15 text-amber-300 border border-amber-500/30 inline-block">
+            🛡️ Why Tier 2's 4 Core Engineering Pillars Cannot Be Downgraded
+          </div>
+          <div class="p-4 rounded-xl bg-slate-900/90 border border-amber-500/30 space-y-1">
+            <div class="text-sm font-bold text-amber-300">1. Why Doctors &amp; Crisis Officers Need Mobile Apps (Not Just a Laptop Web Portal)</div>
+            <p class="text-xs text-slate-300"><strong>Operational Reality:</strong> India's ~9,000 psychiatrists &amp; ~4,000 RCI psychologists run busy hospital OPDs—they do NOT sit at laptops waiting for calls. They take consultations on their phones between clinic patients or at home from 7–10 PM. A laptop web portal cannot ring a doctor's phone lock-screen via VoIP or wake a Crisis Duty Officer at 1:30 AM! Because we use a <strong>unified Flutter cross-platform core (90% shared code)</strong>, delivering native mobile apps for Patients, Doctors (15-sec FaceID Doc Note sign-off), and Crisis Officers costs almost the same as a web portal while preventing 80% missed doctor calls.</p>
+          </div>
+          <div class="p-4 rounded-xl bg-slate-900/90 border border-amber-500/30 space-y-1">
+            <div class="text-sm font-bold text-amber-300">2. Why "Managed APIs Only" Explodes Under the 2x Heavy Usage Stress-Test</div>
+            <p class="text-xs text-slate-300"><strong>Financial Proof:</strong> Under 2x heavy usage (10,000 MAU, 15% paid sending 30 turns/day with 8k memory = 2.4B tokens/month), rented Frontier APIs (Claude/GPT-4o) explode to <strong>₹6,20,000–₹11,50,000/month</strong>! Worse, commercial APIs update safety filters without notice—breaking therapy prompts overnight—and give Saathi AI <strong>zero proprietary IP</strong>. Our Hybrid setup (DeepSeek API for free intake + Self-Hosted Fine-Tuned 70B on per-second Serverless GPUs for paid users) caps monthly compute and builds your 50,000-Note clinical IP moat.</p>
+          </div>
+          <div class="p-4 rounded-xl bg-slate-900/90 border border-amber-500/30 space-y-1">
+            <div class="text-sm font-bold text-amber-300">3. Why "Dated Summaries Without Vector + Graph Memory" Fails After Day 14</div>
+            <p class="text-xs text-slate-300"><strong>Technical Proof:</strong> After 60 days of daily chat, a user has 60 separate session summaries (~12,000 words). Without <code>pgvector</code> semantic search + a JSONB Entity Graph, the AI either stuffs all 60 summaries into every turn (+800% token cost) or suffers complete amnesia about Months 1–2. Best of all, <code>pgvector</code> runs inside the <strong>exact same AWS RDS PostgreSQL database at ₹0 extra monthly server cost</strong>.</p>
+          </div>
+          <div class="p-4 rounded-xl bg-slate-900/90 border border-amber-500/30 space-y-1">
+            <div class="text-sm font-bold text-amber-300">4. Why the Visual Drag-and-Drop Studio (Panel 3) Is Essential During the Pilot</div>
+            <p class="text-xs text-slate-300"><strong>Pilot Agility:</strong> During the Controlled Pilot, your team will test willingness-to-pay, paywall placement, and Stage-2 branching rules. Without our React Flow visual studio (with version control), every adjustment requires paying developers and waiting 14 days for Apple App Store review.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION D: AUDITED & REJECTED IDEAS LOG -->
+  <section id="sec-rejected" class="space-y-4">
+    <div>
+      <div class="text-xs font-mono uppercase text-amber-400">Section D • Due Diligence &amp; Risk Elimination Log</div>
+      <h2 class="text-xl sm:text-2xl font-bold text-white">4 Hyped Industry Ideas We Audited &amp; Rejected (Pros, Fatal Cons &amp; Replacements)</h2>
+      <p class="text-xs sm:text-sm text-slate-400">Why we refused expensive industry gimmicks that create medical liability or destroy monthly unit economics.</p>
+    </div>
+    <div id="rejected-grid" class="grid grid-cols-1 md:grid-cols-2 gap-4"></div>
+  </section>
+
+  <!-- SECTION E: REVISED 9-STEP WORKFLOW -->
+  <section id="sec-flow" class="space-y-4">
+    <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-3">
+      <div>
+        <div class="text-xs font-mono uppercase text-emerald-400">Section E • Revised Clinical &amp; Commercial Journey</div>
+        <h2 class="text-xl sm:text-2xl font-bold text-white">Interactive 9-Step Patient Workflow (Free Preliminary Results Before Paywall)</h2>
+        <p class="text-xs sm:text-sm text-slate-400">Click any step node or simulate a patient trajectory below.</p>
+      </div>
+      <div class="flex flex-wrap gap-1.5 text-xs">
+        <button onclick="simulatePath('mild')" class="px-3 py-1.5 rounded-lg bg-emerald-500/15 text-emerald-300 border border-emerald-500/30 hover:bg-emerald-500/25">Path 1: Mild (Level 1–2)</button>
+        <button onclick="simulatePath('clinical')" class="px-3 py-1.5 rounded-lg bg-indigo-500/15 text-indigo-300 border border-indigo-500/30 hover:bg-indigo-500/25">Path 2: Clinical Consult (Level 3–4)</button>
+        <button onclick="simulatePath('crisis')" class="px-3 py-1.5 rounded-lg bg-rose-500/15 text-rose-300 border border-rose-500/30 hover:bg-rose-500/25">Path 3: Level 5 Crisis (100% Free)</button>
+      </div>
+    </div>
+    <div id="flow-grid" class="grid grid-cols-1 md:grid-cols-3 gap-3"></div>
+    <div id="flow-detail" class="glass-card rounded-xl p-5 border-emerald-500/40"></div>
+  </section>
+
+  <!-- SECTION F: AI MODEL PROGRESSION & 50,000-DOCTOR-NOTE TRAINING SIMULATOR -->
+  <section id="sec-models" class="space-y-5">
+    <div>
+      <div class="text-xs font-mono uppercase text-indigo-400">Section F • Sovereign Fine-Tuned AI Roadmap &amp; 50,000-Note Pipeline</div>
+      <h2 class="text-xl sm:text-2xl font-bold text-white">32B &rarr; 70B (Sweet Spot) &rarr; 120B Flagship &rarr; 235B/405B Sovereign Upgrade</h2>
+      <p class="text-xs sm:text-sm text-slate-400">How we train on 50,000 real Doctor Notes (100M raw tokens / 400M multi-epoch SFT+DPO tokens) safely in 14 GPU hours.</p>
+    </div>
+    <div id="models-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4"></div>
+
+    <!-- 50,000 DOCTOR NOTE SIMULATOR -->
+    <div class="glass-card rounded-xl p-5 border-slate-800">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+        <div>
+          <div class="text-xs font-mono uppercase text-emerald-400">6-Month Data Scale Stress-Test</div>
+          <div class="text-sm font-bold text-white">Simulate Consultation Note Volume for Quarterly DPO Retraining: <span id="notes-count-lbl" class="text-emerald-400 font-mono">50,000 Doctor Notes</span></div>
+        </div>
+        <input type="range" id="notes-slider" min="5000" max="100000" step="5000" value="50000" oninput="runPipeline(this.value)" class="w-full sm:w-64 accent-emerald-500" />
+      </div>
+      <div id="pipeline-stats" class="grid grid-cols-2 sm:grid-cols-5 gap-3 mt-4"></div>
+    </div>
+  </section>
+
+  <!-- SECTION G: INTERACTIVE DRAG-AND-DROP / CLICK-TO-BUILD ARCHITECTURE CONFIGURATOR -->
+  <section id="sec-builder" class="space-y-6">
+    <div class="glass-card rounded-2xl p-6 sm:p-8 border-emerald-500/40">
+      <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4 border-b border-slate-800 pb-5">
+        <div>
+          <div class="text-xs font-mono uppercase text-emerald-400">Section G • Live Modular Scope &amp; Pricing Configurator</div>
+          <h2 class="text-xl sm:text-2xl font-bold text-white mt-1">Select Base Architecture Tier &amp; Drag-and-Drop Any Flagship Upgrade</h2>
+          <p class="text-xs sm:text-sm text-slate-300 mt-1">
+            <strong>Tier 2 (₹54,00,000)</strong> is pre-selected as the recommended commercial foundation. Because Tier 2 pre-wires all database sockets, you can drag-and-drop any individual <strong>Tier 1 Flagship module</strong> into your build today—or unlock them within 24 months under our <strong>"Pay-Only-The-Delta" Guarantee</strong>.
+          </p>
+        </div>
+        <div class="flex flex-wrap gap-2">
+          <button onclick="selectBaseTier('tier3')" id="btn-tier3" class="px-3.5 py-2 rounded-xl text-xs font-bold border border-slate-700 bg-slate-900 text-slate-300">Tier 3: Lean (₹28.75L)</button>
+          <button onclick="selectBaseTier('tier2')" id="btn-tier2" class="px-3.5 py-2 rounded-xl text-xs font-bold border border-emerald-500 bg-emerald-500 text-slate-950">Tier 2: Enterprise Pro (₹54.00L ★ Best Fit)</button>
+          <button onclick="selectBaseTier('tier1')" id="btn-tier1" class="px-3.5 py-2 rounded-xl text-xs font-bold border border-indigo-500/40 bg-indigo-500/15 text-indigo-300">Tier 1: Ultra-Flagship (₹1.235 Cr)</button>
+        </div>
+      </div>
+
+      <!-- 5 BASE WORKSTREAMS COMPARISON TABLE -->
+      <div class="mt-6 overflow-x-auto">
+        <table class="w-full text-left border-collapse text-xs">
+          <thead>
+            <tr class="bg-slate-900/95 text-slate-300 border-b border-slate-800">
+              <th class="p-3 font-semibold">Core Engineering Workstream (3-POV Breakdown)</th>
+              <th class="p-3 font-semibold">Tier 3: Lean Commercial</th>
+              <th class="p-3 font-semibold bg-emerald-500/10 text-emerald-300 border-x border-emerald-500/30">Tier 2: Enterprise Pro (Selected Base)</th>
+              <th class="p-3 font-semibold text-indigo-300">Tier 1: Ultra-Flagship (Base + All 14 Add-Ons)</th>
+            </tr>
+          </thead>
+          <tbody id="base-ws-table" class="divide-y divide-slate-800/80"></tbody>
+        </table>
+      </div>
+
+      <!-- DRAG AND DROP BUILDER COLUMNS -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 mt-8">
+        <!-- LEFT 7 COLS: AVAILABLE FLAGSHIP UPGRADES -->
+        <div class="lg:col-span-7 space-y-3">
+          <div class="flex items-center justify-between">
+            <h3 class="text-sm font-bold text-white uppercase tracking-wider font-mono">Available Flagship Upgrade Modules (Drag or Click + Add)</h3>
+            <button onclick="clearAllAddons()" class="text-xs text-slate-400 hover:text-white underline">Reset to Pure Tier 2</button>
+          </div>
+          <div id="addons-catalog" class="grid grid-cols-1 sm:grid-cols-2 gap-3"></div>
+        </div>
+
+        <!-- RIGHT 5 COLS: ACTIVE BLUEPRINT DROP ZONE -->
+        <div class="lg:col-span-5">
+          <div id="drop-zone" ondragover="handleDragOver(event)" ondragleave="handleDragLeave(event)" ondrop="handleDrop(event)" class="glass-card rounded-2xl p-5 border-2 border-dashed border-emerald-500/40 sticky top-20 space-y-4">
+            <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+              <div>
+                <div class="text-xs font-mono uppercase text-emerald-400">Your Active Saathi AI Blueprint</div>
+                <div id="active-tier-title" class="text-base font-extrabold text-white">Tier 2: Enterprise Pro Base</div>
+              </div>
+              <span id="active-base-price" class="text-lg font-mono font-bold text-emerald-400">₹54,00,000</span>
+            </div>
+            <div class="text-xs text-slate-400">Drag any Flagship card here (or tap <strong>+ Add</strong>) to customize your Tier 2 build:</div>
+            <div id="selected-addons-list" class="space-y-2 max-h-80 overflow-y-auto pr-1"></div>
+            <div class="border-t border-slate-800 pt-3 space-y-1.5 text-xs">
+              <div class="flex justify-between text-slate-300"><span>Selected Base Architecture:</span><span id="sum-base" class="font-mono">₹54,00,000</span></div>
+              <div class="flex justify-between text-indigo-300"><span>Selected Flagship Add-Ons (<span id="sum-addon-count">0</span>):</span><span id="sum-addons" class="font-mono">+ ₹0</span></div>
+              <div class="flex justify-between text-amber-300"><span>Selected Mascot Module:</span><span id="sum-mascot" class="font-mono">+ ₹0 (Deferred)</span></div>
+              <div class="flex justify-between text-base font-extrabold text-white pt-2 border-t border-slate-800">
+                <span>TOTAL ONE-TIME INVESTMENT:</span>
+                <span id="sum-grand" class="font-mono text-emerald-400">₹54,00,000</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION G2: OPTIONAL DOCTOR MASCOT SELECTOR -->
+  <section id="sec-mascot" class="space-y-4">
+    <div>
+      <div class="text-xs font-mono uppercase text-amber-400">Optional Visual Module • Select Now or Defer to Stage 5</div>
+      <h2 class="text-xl sm:text-2xl font-bold text-white">Interactive Doctor Mascot Selector (2D Only vs. 3D Only vs. Both 2D &amp; 3D)</h2>
+      <p class="text-xs sm:text-sm text-slate-400">Decoupled from Core Engineering so you can start Phase 1 immediately with zero visual scope delay.</p>
+    </div>
+    <div id="mascot-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3"></div>
+  </section>
+
+  <!-- SECTION H: TOKEN-LEVEL TCO, 2X STRESS-TEST, BREAK-EVEN & 6-PILLAR ACCEPTANCE -->
+  <section id="sec-tco" class="space-y-6">
+    <div class="glass-card rounded-2xl p-6 sm:p-8 space-y-6">
+      <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4 border-b border-slate-800 pb-5">
+        <div>
+          <div class="text-xs font-mono uppercase text-emerald-400">Section H • Verified Operating Economics (Sections 15, 16, 17 &amp; 18 Compliance)</div>
+          <h2 class="text-xl sm:text-2xl font-bold text-white mt-1">Token-Level Monthly TCO, 2x Heavy Usage Stress-Test &amp; Break-Even Calculator</h2>
+        </div>
+        <div class="flex flex-wrap items-center gap-3">
+          <div class="flex items-center gap-1 bg-slate-900 p-1 rounded-xl border border-slate-800 text-xs">
+            <button onclick="setUsageLoad(1)" id="load-1x" class="px-3 py-1.5 rounded-lg font-semibold bg-emerald-500 text-slate-950">1x Expected Usage</button>
+            <button onclick="setUsageLoad(2)" id="load-2x" class="px-3 py-1.5 rounded-lg font-semibold text-amber-300 hover:bg-slate-800">2x Heavy Usage Stress-Test</button>
+          </div>
+          <select id="mau-select" onchange="renderTCO()" class="bg-slate-900 border border-slate-700 text-white text-xs rounded-xl px-3 py-2 font-semibold">
+            <option value="1000">1,000 MAU (Controlled Pilot)</option>
+            <option value="2500" selected>2,500 MAU (Initial Commercial Launch)</option>
+            <option value="10000">10,000 MAU (Growth Scale)</option>
+          </select>
+        </div>
+      </div>
+
+      <div id="tco-view" class="grid grid-cols-1 lg:grid-cols-12 gap-6"></div>
+
+      <!-- SLA RETAINER SELECTOR -->
+      <div class="pt-4 border-t border-slate-800">
+        <div class="text-xs font-mono uppercase text-indigo-400 mb-2">Post-Warranty Monthly Engineering, SLA &amp; AI Governance Retainers (First 45 Days Free)</div>
+        <div id="retainer-grid" class="grid grid-cols-1 md:grid-cols-3 gap-4"></div>
+      </div>
+
+      <!-- 6-PILLAR ACCEPTANCE & 10-ITEM IP HANDOVER -->
+      <div class="pt-4 border-t border-slate-800">
+        <div class="text-xs font-mono uppercase text-emerald-400 mb-2">6-Pillar Pre-Launch Acceptance Gate &amp; 10-Item Complete IP Handover (Final 25% Milestone Gate)</div>
+        <div id="checklist-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3"></div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- PRINTABLE SUMMARY SHEET -->
+<div id="print-sheet" class="hidden p-8 max-w-4xl mx-auto"></div>
+
+<!-- STICKY BOTTOM LIVE SUMMARY BAR -->
+<footer class="fixed bottom-0 inset-x-0 z-50 bg-slate-950/95 backdrop-blur-lg border-t border-emerald-500/40 no-print">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 py-3 flex flex-col sm:flex-row items-center justify-between gap-3">
+    <div class="flex flex-wrap items-center gap-4 text-xs">
+      <div>
+        <span class="text-slate-400 block text-[10px] font-mono uppercase">Active Base + Add-Ons</span>
+        <span id="bar-tier-name" class="font-bold text-white">Tier 2: Enterprise Pro + 0 Upgrades</span>
+      </div>
+      <div class="h-7 w-px bg-slate-800 hidden sm:block"></div>
+      <div>
+        <span class="text-slate-400 block text-[10px] font-mono uppercase">Live One-Time Total (Excl. GST)</span>
+        <span id="bar-total" class="text-lg font-mono font-extrabold text-emerald-400">₹54,00,000</span>
+      </div>
+      <div class="h-7 w-px bg-slate-800 hidden md:block"></div>
+      <div class="hidden md:block">
+        <span class="text-slate-400 block text-[10px] font-mono uppercase">4x 25% Acceptance-Gated Milestones</span>
+        <span id="bar-milestone" class="font-mono text-slate-200 font-semibold">₹13,50,000 / phase</span>
+      </div>
+    </div>
+    <div class="flex items-center gap-2">
+      <button onclick="exportBlueprint()" class="px-4 py-2 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-xs transition">
+        Export Custom Blueprint (Print / PDF)
+      </button>
+    </div>
+  </div>
+</footer>
+
+<script>
+const INR = n => '₹' + Number(n).toLocaleString('en-IN');
+
+let state = {
+  lens: 'plain',
+  baseTier: 'tier2',
+  addons: new Set(),
+  mascotId: 'none',
+  mau: 2500,
+  usageLoad: 1,
+  retainer: 'planA',
+  activeStep: 4
+};
+
+const BASE_TIERS = {
+  tier3: { name: 'Tier 3: Lean Commercial Foundation', price: 2875000, ws: [1430000, 210000, 285000, 550000, 400000] },
+  tier2: { name: 'Tier 2: Enterprise Pro Suite (Recommended)', price: 5400000, ws: [2415000, 460000, 430000, 1150000, 945000] },
+  tier1: { name: 'Tier 1: Ultra-Flagship Complete Suite', price: 12350000, ws: [4410000, 945000, 880000, 2880000, 3235000] }
+};
+
+const WORKSTREAMS_META = [
+  { id: 'WS1', title: '1. Multi-Platform Apps, Clinician Mobile/Web Suite & UI/UX',
+    t3: '2 Mobile Apps (User + Doctor); Admin & Crisis on Web (50–250 Docs)',
+    t2: 'All 4 Role Apps (Patient, Doctor, Crisis, Admin via shared Flutter/Next.js core) + Atomic Slot Locks (250–1,500 Docs)',
+    t1: 'Tier 2 + Offline-First DB Sync (+₹8.0L) + 5,000-Doc Elastic Marketplace (+₹5.9L) + B2B White-Label SSO (+₹6.05L)' },
+  { id: 'WS2', title: '2. Workflow Studio (Panel 3) & B2B / ABDM Interop',
+    t3: 'Form-Based Clinical Rule Table (fixed step sequence)',
+    t2: 'Visual Drag-and-Drop Flowchart Studio (@xyflow/react) + Version Control + HL7 FHIR R4 Schemas',
+    t1: 'Tier 2 + B2B Corporate HR Burnout Heatmap Portal (+₹3.05L) + Split-Traffic A/B Trial & ABDM Gateway (+₹1.80L)' },
+  { id: 'WS3', title: '3. 4D Clinical Intake, Smart-Skip, Drift & Revenue AI',
+    t3: 'Pre-Fill Confirmation Intake + 7-Day Drift Average',
+    t2: 'DeepSeek Auto-Skip + Completeness Gate + 4D Python Scoring + Z-Score Drift + Subscription Discount Ledger',
+    t1: 'Tier 2 + 72-Hr Predictive Relapse Radar & Smartwatch Sync (+₹2.40L) + AI Churn-Rescue & Sachet Paywall (+₹2.10L)' },
+  { id: 'WS4', title: '4. Custom Fine-Tuned AI Fusion & 3-Tier Memory',
+    t3: 'Fine-Tuned 32B Model + Basic Profile/Summaries + Pre-Session Brief',
+    t2: '2-Stage Fine-Tuned 70B Model (8x H100) + 3-Tier GraphRAG Memory + Structured Goal Programs + Pre/Post Doctor Co-Pilot',
+    t1: 'Tier 2 + 120B Model & 3-Agent Council (+₹6.0L) + Live In-Call Doctor Whisper (+₹3.7L) + Homework Compiler (+₹3.0L) + B2B Group Circles (+₹2.5L) + 50k-Note Auto-DPO (+₹2.1L)' },
+  { id: 'WS5', title: '5. Split-Vault Security, PII Scrubber, VAPT & SOC 2 Type II',
+    t3: 'AWS Mumbai Split-Vault + KMS + Single-App Basic VAPT',
+    t2: 'Global HIPAA/GDPR/DPDP Split-Vault + Pre-Inference NER PII Scrubber + Immutable Logs + Full Multi-Asset CERT-In & ABDM VAPT Certificate',
+    t1: 'Tier 2 + 2-City Active-Active DR & 32-Shard Citus (+₹5.05L) + Full SOC 2 Type II Program (Sprinto/Vanta + CPA Audit + Red-Team Pentest: +₹17.85L)' }
+];
+
+const ADDONS = [
+  { id: '1A', ws: 'WS1', title: '100% Offline-First Encrypted Local Phone DB Sync', price: 800000,
+    plain: 'Patients can journal, complete CBT homework, and log moods on an airplane or with zero internet; syncs automatically later.',
+    roi: 'Boosts daily retention by 35% in low-connectivity Indian tier-2/3 areas and during travel.',
+    spec: 'Encrypted SQLite/WatermelonDB local store with CRDT conflict-free delta sync to AWS RDS.' },
+  { id: '1B', ws: 'WS1', title: 'National Multi-Tier Clinician Marketplace (1,500–5,000+ Docs)', price: 590000,
+    plain: 'Scales the doctor directory to thousands of clinics with automatic multi-clinic commission splits.',
+    roi: 'Enables onboarding hospital chains and multi-city psychology clinics with automated TDS/TCS split payouts.',
+    spec: 'Elasticsearch geo-specialty sub-50ms matcher + Razorpay Route multi-beneficiary ledger.' },
+  { id: '1C', ws: 'WS1', title: 'Corporate B2B White-Label App Theme & Enterprise SAML SSO', price: 605000,
+    plain: 'When a corporate employee logs in, the app automatically displays their company logo, colors, and dedicated doctor pool.',
+    roi: 'Unlocks premium ₹50L+ enterprise B2B contracts where corporations demand co-branded employee apps.',
+    spec: 'Dynamic multi-tenant theme manifest + Okta / Azure AD SAML 2.0 & OIDC SSO.' },
+  { id: '2A', ws: 'WS2', title: 'B2B Corporate HR "Burnout Radar & Department Heatmap" Portal', price: 305000,
+    plain: 'Gives corporate HR directors a live, 100% anonymous heatmap of stress and sleep debt across departments.',
+    roi: 'Allows Saathi AI to sell bulk corporate wellness seats (5,000+ employees) with zero consumer ad spend.',
+    spec: 'Differential-privacy k-anonymity aggregation (min 15 employees/bucket) + ESG PDF generator.' },
+  { id: '2B', ws: 'WS2', title: 'Live Split-Traffic Clinical A/B Trial Engine & Govt ABDM Gateway', price: 180000,
+    plain: 'Test two different app journeys or paywalls on 50/50 user traffic + link India ABHA Health IDs.',
+    roi: 'Proves clinical and conversion lift scientifically during pilot and enables hospital EMR sharing.',
+    spec: 'Deterministic cohort assignment router + NHA ABDM HIP/HIU FHIR R4 consent gateway.' },
+  { id: '3A', ws: 'WS3', title: '72-Hour Predictive "Relapse Radar" + Smartwatch Biometrics', price: 240000,
+    plain: 'Reads Apple Watch / Android Health sleep & heart-rate variability (HRV) to warn 3 days before a panic or mood crash.',
+    roi: 'Triggers timely preventive check-ins and high-conversion paid booster consultations.',
+    spec: 'Apple HealthKit & Google Health Connect background bridge + temporal anomaly detector.' },
+  { id: '3B', ws: 'WS3', title: 'Autonomous AI Churn-Rescue & Dynamic Sachet Paywall', price: 210000,
+    plain: 'Automatically offers a ₹199 3-day relief pass if a user hesitates at the paywall, and rescues users about to quit.',
+    roi: 'Increases free-to-paid conversion by 25%+ and cuts monthly subscription churn.',
+    spec: 'Contextual bandit propensity scorer + automated Razorpay sachet offer webhook.' },
+  { id: '4A', ws: 'WS4', title: 'Upgrade 70B -> Multi-Node Fine-Tuned 120B Model + 3-Agent Council', price: 600000,
+    plain: 'Upgrades the AI brain to a massive 120B model where 3 specialist agents (Empathy, CBT, Safety) debate before replying.',
+    roi: 'Delivers unmatched multilingual Indian clinical depth and zero-hallucination therapeutic guidance.',
+    spec: '2x8 H100 DeepSpeed ZeRO-3 SFT/DPO on 120B weights + 3-agent internal consensus orchestrator.' },
+  { id: '4B', ws: 'WS4', title: 'Live In-Call "Doctor Whisper" & Contradiction Co-Pilot', price: 370000,
+    plain: 'Silently whispers on the doctor’s screen during a live video call if the patient contradicts their earlier AI chats.',
+    roi: 'Makes psychologists 2x more effective and turns Saathi AI into an indispensable clinical tool.',
+    spec: 'Real-time WebRTC audio fork -> streaming ASR -> pgvector contradiction check (<600ms).' },
+  { id: '4C', ws: 'WS4', title: 'Automated "Session-to-Homework" Compiler & Voice Generator', price: 300000,
+    plain: 'Turns the doctor’s signed note into a custom 7-day interactive workbook and personalized voice meditation in 10 seconds.',
+    roi: 'Doubles patient homework completion between doctor visits and justifies premium subscription renewal.',
+    spec: 'Structured JSON CBT generator + Sarvam/ElevenLabs neural voice synthesis pipeline.' },
+  { id: '4D', ws: 'WS4', title: 'B2B Supervised "AI-Moderated Group Wellness Circles" (1 Doc : 50 Users)', price: 250000,
+    plain: 'Lets 1 psychologist supervise a support group of 50 users while an AI co-moderator runs daily group check-ins.',
+    roi: 'Multiplies a single psychologist’s revenue capacity by 10x for corporate burnout & student cohorts.',
+    spec: 'Multi-participant WebSocket room with real-time pre-delivery safety filtering & clinician digest.' },
+  { id: '4E', ws: 'WS4', title: '50,000-Note Automated NER Scrubber, Judge Filter & Auto-DPO Pipeline', price: 210000,
+    plain: 'Automatically cleans 50,000+ doctor notes, filters out low-quality notes, and retrains the AI brain every quarter.',
+    roi: 'Turns daily consultations into a ₹100Cr+ proprietary clinical AI dataset without manual data cleaning.',
+    spec: 'De-ID NER pipeline + LLM-as-a-Judge rubric filter + automated multi-GPU QLoRA/DPO training runner.' },
+  { id: '5A', ws: 'WS5', title: '2-City Active-Active Disaster Recovery (Mumbai + Hyderabad) & 32 Shards', price: 505000,
+    plain: 'If an entire data center goes offline, the second city takes over in 1 second with zero data loss.',
+    roi: 'Guarantees 99.99% uptime for national hospital chains and میلیون-user scale.',
+    spec: 'Multi-region AWS EKS + Citus 32-shard distributed PostgreSQL + cross-region KMS replication.' },
+  { id: '5B', ws: 'WS5', title: 'Full SOC 2 Type II Compliance Program (Sprinto/Vanta + CPA Audit + Red-Team)', price: 1785000,
+    plain: 'Complete international SOC 2 Type II audit report by a licensed CPA firm plus continuous ethical hacking.',
+    roi: 'Mandatory requirement to sign large multinational B2B corporations and global insurance partners.',
+    spec: '1-Year Sprinto/Vanta GRC automation + AICPA CPA Type II 6-month attestation + CREST Red-Team VAPT.' },
+  { id: 'SOV-235B', ws: 'WS4', title: 'Optional Sovereign 235B / 405B Parameter Model (32x H100 Full SFT)', price: 4440000,
+    plain: 'Trains a frontier-scale 235B/405B sovereign medical brain across 32 H100 GPUs (recommended only at 100k+ paid users).',
+    roi: 'Ultimate sovereign AI moat once user volume justifies the ₹10.5L–₹18.5L/month 24/7 8xH100 hosting bill.',
+    spec: '4-node (32x H100) FSDP full-parameter SFT + multi-turn DPO + dedicated 8xH100 vLLM cluster.' }
+];
+
+const TRANSLATOR = [
+  { title: '1. Pre-Router <50ms Safety Sidecar', badge: '<50ms Gate',
+    plain: 'Like an Airport Metal Detector at the front door (1/20th of a second—4x faster than an eye blink). It checks every message for danger BEFORE the chatbot sees it.',
+    roi: 'Eliminates clinical liability by ensuring suicidal or crisis messages (in English, Hindi, or Hinglish) immediately lock casual chat and alert the Human Duty Desk.',
+    spec: 'Parallel deterministic regex + fine-tuned Llama-Guard-3 safety classifier executing in <50ms prior to LiteLLM routing.' },
+  { title: '2. 4-Dimensional Deterministic Python Engine', badge: 'Zero AI Guesswork',
+    plain: 'Like a Bank Calculator (where 2+2 is always 4) vs. a Creative Writer. The AI never diagnoses or guesses risk scores—a strict doctor-approved math formula calculates the Care Level.',
+    roi: 'Guarantees 100% clinical auditability across Symptom Severity, Functional Impairment, Urgency, and Safety Override.',
+    spec: 'Version-controlled Python scoring engine evaluating PHQ-9, GAD-7, ISI, PSS-10, WSAS & C-SSRS cutoffs.' },
+  { title: '3. 2-Stage Custom Fine-Tuned 70B Model', badge: '100% Owned IP',
+    plain: 'Like putting a brilliant scholar through a 6-month Indian Psychology Residency so Saathi AI owns the trained brain forever.',
+    roi: 'Prevents rented API price explosions under heavy usage, avoids sudden third-party filter changes, and builds high investor valuation.',
+    spec: 'Stage 1 Companion Boundary LoRA + Stage 2 Deep SFT & DPO on 8x H100 GPUs, served on per-second Serverless vLLM.' },
+  { title: '4. 3-Tier Hierarchical Memory (GraphRAG)', badge: '6M–5Yr Recall',
+    plain: 'Like a Doctor’s 1-Page Index Card (Key People + Triggers + Past Session Summaries) instead of re-reading a 500-page diary before every reply.',
+    roi: 'Remembers 6+ months of daily patient history in <50ms while cutting token bills by 75%. Runs inside AWS RDS Postgres at ₹0 extra server cost.',
+    spec: 'Assembles ~8k tokens/turn: 1k JSONB Entity Graph + 2k pgvector top-5 dated session summaries + 5k sliding window.' },
+  { title: '5. Split-Vault DB + Pre-Inference PII Scrubber', badge: 'DPDP / HIPAA',
+    plain: 'Keeps Client Names in Vault A and Anonymous Medical Files in Vault B—and automatically scrubs any names or phone numbers typed inside chat messages.',
+    roi: 'Protects founders from ₹250 Cr India DPDP Act penalties and ensures external AI processing never sees identifiable patient data.',
+    spec: 'Dual isolated AWS Mumbai RDS instances (KMS AES-256) + UUIDv7 shard keys + Pre-Inference NER/Regex PII scrubber.' }
+];
+
+const REJECTED = [
+  { title: 'Rejected #1: Unsupervised "24/7 Doctor AI Digital Twin"',
+    pros: 'Sounded like a high-margin ₹1,999/mo VIP subscription where an AI impersonates a specific psychologist between sessions.',
+    cons: 'FATAL FLAW: Violates Section 7 of our Roadmap ("Saathi must never pretend to be a human doctor") and Indian NMC Telemedicine Guidelines. No licensed psychiatrist or RCI psychologist will accept malpractice liability for what an unsupervised bot says while impersonating them at 2 AM.',
+    built: 'WHAT WE BUILT INSTEAD: "Doctor-Guided Care Plan Sync" — The doctor’s signed post-session Doc Note updates Saathi AI’s instructions. The AI clearly remains "Saathi AI," helping the patient practice their doctor’s assigned CBT homework.' },
+  { title: 'Rejected #2: 60-Second Voice-Tone Depression Diagnosis',
+    pros: 'Sounded like a futuristic "1-minute voice biomarker scan" for marketing.',
+    cons: 'FATAL FLAW: Suffers a 40%+ false-positive error rate whenever a user has a common cold, throat fatigue, or Indian background traffic noise. Clinically invalid as a standalone diagnostic tool.',
+    built: 'WHAT WE BUILT INSTEAD: "4-Dimensional Multi-Signal Baseline Drift Engine" combining validated clinical scales + daily mood/sleep check-ins + optional smartwatch sleep/HRV data.' },
+  { title: 'Rejected #3: Cloud-Streamed Deepfake Video Avatars (HeyGen / Tavus)',
+    pros: 'Looks like a photorealistic human on a 30-second demo call.',
+    cons: 'FATAL FLAW: Triggers "uncanny valley" distrust in distressed patients, buffers on 4G networks, and costs ₹10–₹15/minute (₹4,500+/month per user in streaming server bills—destroying unit economics).',
+    built: 'WHAT WE BUILT INSTEAD: "On-Device 60FPS Animated AI Wellness Doctor Mascot" (2D Rive or Cinema 3D) running natively on the phone with ₹0/month streaming fees.' },
+  { title: 'Rejected #4: Unstructured Chatbot Diagnosis (Skipping Questionnaires)',
+    pros: 'Zero forms during user onboarding.',
+    cons: 'FATAL FLAW: General LLMs miss silent clinical red flags if a user does not mention them organically in conversation. Fails medical audit.',
+    built: 'WHAT WE BUILT INSTEAD: "Conversational Preliminary Intake + Mandatory Completeness Gate" — Friendly chat pre-fills mentioned items, followed by 1-tap verification and structured Stage-2 instruments.' }
+];
+
+const FLOW = [
+  { step: 1, title: 'Step 1: Registration & 7-Toggle Consent', tag: 'Free Entry',
+    desc: 'User signs up on iOS, Android, or Web, confirms age eligibility, and grants granular consent across AI chat, assessment, video consultation, and monitoring.' },
+  { step: 2, title: 'Step 2: Stage-1 Conversational Preliminary Intake + <50ms Safety Gate', tag: 'DeepSeek + Safety Sidecar',
+    desc: 'Natural, supportive conversation captures principal concern, onset, frequency, daily impact, triggers & expectations. Parallel <50ms Safety Sidecar intercepts any direct/indirect self-harm immediately.' },
+  { step: 3, title: 'Step 3: Mandatory Completeness Gate & Stage-2 Validated Instruments', tag: 'Zero Skipped Items',
+    desc: 'Selects domain-specific validated instruments (PHQ-9, GAD-7, ISI, PSS-10, WSAS Functional Scale, C-SSRS) based on Stage-1 responses and verifies 100% completion.' },
+  { step: 4, title: 'Step 4: 4D Deterministic Scoring -> FREE Preliminary Results & Safety Guidance', tag: 'FREE Before Paywall',
+    desc: 'Python rule engine scores Severity, Functional Impairment, Urgency & Safety Override. User receives their Preliminary Assessment Summary, Severity Indication & Basic Safety Guidance FOR FREE before any commercial paywall.' },
+  { step: 5, title: 'Step 5: 5-Level Care Allocation & Transparent Commercial Conversion', tag: 'Smart Discount Funnel',
+    desc: 'Level 1–2 (Mild): Presents Paywall #1 (Subscription for 70B AI Companion & Structured Goal Programs). Level 3–4 (Moderate/High): Transparently presents Doctor Consultation Options (Paywall #2 with automatic Subscription Fee Discount deduction). Level 5 (Crisis): 100% FREE immediate Crisis Protocol & Human Duty Queue.' },
+  { step: 6, title: 'Step 6: Encrypted Doctor Video Call + 15–20 Min Pre-Session Brief', tag: 'Doctor Mobile/Web App',
+    desc: 'Scheduled AI chat prepares a 1-Page Clinical Head-Start Brief. Doctor conducts video call and signs off on the final Doc Note in 15 seconds on Mobile/Web.' },
+  { step: 7, title: 'Step 7: Doc Note Sync & Structured Goal-Oriented Support Programmes', tag: 'Measurable Progress',
+    desc: 'Signed Doc Note updates the 70B AI Companion. User works through structured 2–4 week programmes (Trigger ID -> Preparation -> Practice Tasks -> Review).' },
+  { step: 8, title: 'Step 8: Self-Baseline Drift Monitor & Human Review Desk (App 3)', tag: 'Safety Escalation',
+    desc: 'Tracks rolling mood, sleep, withdrawal & task completion. If deterioration is detected, alerts App 3 Human Review Desk (with backup escalation if reviewer is offline).' },
+  { step: 9, title: 'Step 9: Periodic Reassessment (Improved / Unchanged / Deteriorated)', tag: 'Closed Loop',
+    desc: 'Evaluates measurable outcome change and either continues, modifies, or escalates the user’s Care Level and support plan.' }
+];
+
+const MODELS = [
+  { tier: 'Tier 3 Model', name: 'Fine-Tuned 32B (Qwen-2.5-32B)', build: '₹5,50,000 (Included in Tier 3)', opex: '₹12k–₹25k / mo (Serverless)',
+    hw: '1x Node (4–8x A100/H100) QLoRA + SFT', best: 'Cost-optimized launch with solid daily check-in empathy and structured exercise delivery.' },
+  { tier: 'Tier 2 Sweet Spot ★', name: '2-Stage Fine-Tuned 70B (Llama-3.3-70B)', build: '₹11,50,000 (Included in Tier 2)', opex: '₹12.9k–₹30.5k / mo (Per-Sec Serverless A100)',
+    hw: '1x Node (8x H100 80GB) Stage-1 Boundary LoRA + Stage-2 Deep SFT & DPO', best: 'Outperforms generic 200B+ APIs on clinical summarization & empathy while running on per-second Serverless GPUs.' },
+  { tier: 'Tier 1 Flagship', name: 'Fine-Tuned 120B + 3-Specialist AI Council', build: '₹28,80,000 (Included in Tier 1)', opex: '₹1.95L–₹2.60L / mo (Dedicated 2x H100)',
+    hw: '2x Nodes (16x H100) DeepSpeed SFT/DPO + 3-Agent Internal Council', best: 'Superior psychological resistance handling, regional Indian linguistic nuance, and multi-agent safety consensus.' },
+  { tier: 'Optional Sovereign Upgrade', name: 'Fine-Tuned 235B / 405B Model', build: '+ ₹44,40,000 (Optional Add-On)', opex: '₹10.5L–₹18.5L / mo (Mandatory 24/7 8x H100)',
+    hw: '4x Nodes (32x H100/H200) Full Multi-Node SFT + Red-Teaming', best: 'Frontier cross-disciplinary comorbidity reasoning. Pre-wired in Tier 2/1 router; activate only after 100,000+ paid users.' }
+];
+
+const MASCOT = [
+  { id: 'none', title: 'Defer Mascot to Stage 5', sub: 'Launch Core Clinical Platform First', price: 0, desc: 'Zero delay to Phase 1–4 engineering. Plug in any 2D or 3D mascot later via our universal JSON emotion hook.' },
+  { id: '2d_pro', title: 'Option A: 2D Rive Mascot (Pro Lip-Sync)', sub: '15-Viseme Multi-Language + 8s Loops', price: 240000, desc: '<500KB vector engine at 60 FPS on all phones. Real-time phonetic mouth shapes in Hindi & English.' },
+  { id: '2d_t1', title: 'Option A1: 2D Rive Mascot (Volume Sync)', sub: 'Audio-Decibel Mouth Sync + 4s Loops', price: 150000, desc: 'Saves ₹90k. Mouth opens/closes with voice volume. (Tier-2 Basic Loops Only also available at +₹70,000).' },
+  { id: '3d_pro', title: 'Option B: 3D Cinema Doctor (Pro Lip-Sync)', sub: '52 ARKit Blendshapes + 24s Studio 3D', price: 730000, desc: 'Pixar-grade 3D Doctor in warm clinic study with full jaw/tongue multi-language lip-sync. (2.5D Rig: +₹3.10L | 3D Loops: +₹1.70L).' },
+  { id: 'both_pro', title: 'Option C: BOTH 2D & 3D Hybrid Suite', sub: 'Instant 2D for Chat + Cinema 3D for Video Calls', price: 900000, desc: 'Saves ₹70k vs separate. Adaptive switching based on user mode and network speed. (Tier-1 Hybrid: +₹4.20L).' }
+];
+
+function renderCapacity(mode) {
+  const bMan = document.getElementById('cap-btn-manual');
+  const bSaa = document.getElementById('cap-btn-saathi');
+  if (mode === 'manual') {
+    bMan.className = 'px-3 py-1.5 rounded-lg text-xs font-semibold bg-amber-500 text-slate-950';
+    bSaa.className = 'px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-800 text-slate-300';
+    document.getElementById('capacity-view').innerHTML = `
+      <div class="p-4 rounded-xl bg-slate-900/90 border border-amber-500/30 text-xs text-slate-300 flex flex-col sm:flex-row justify-between gap-4">
+        <div><strong class="text-amber-300">Without Saathi AI (Standard 60-Min Session):</strong> First 20 mins wasted asking basic history + 30 mins therapy + 10 mins manual note typing = <strong>Max 8 Patients/Day</strong>.</div>
+        <div class="font-mono font-bold text-amber-400 shrink-0">Daily Clinic Revenue: ₹12,000/day</div>
+      </div>`;
+  } else {
+    bSaa.className = 'px-3 py-1.5 rounded-lg text-xs font-semibold bg-emerald-500 text-slate-950';
+    bMan.className = 'px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-800 text-slate-300';
+    document.getElementById('capacity-view').innerHTML = `
+      <div class="p-4 rounded-xl bg-emerald-950/30 border border-emerald-500/40 text-xs text-slate-200 flex flex-col sm:flex-row justify-between gap-4">
+        <div><strong class="text-emerald-300">With Saathi AI 1-Page Pre-Session Brief + 15-Sec Mobile Note Sign-Off:</strong> 0 mins wasted on basic intake + focused 30-min clinical intervention = <strong>16 Patients/Day (+100% Capacity)</strong>.</div>
+        <div class="font-mono font-bold text-emerald-400 shrink-0">Daily Clinic Revenue: ₹24,000/day (2x)</div>
+      </div>`;
+  }
+}
+
+function setGlobalLens(lens) {
+  state.lens = lens;
+  ['plain', 'roi', 'spec'].forEach(l => {
+    const btn = document.getElementById('lens-' + l);
+    btn.className = l === lens
+      ? 'px-3 py-1.5 rounded-lg font-semibold bg-emerald-500 text-slate-950'
+      : 'px-3 py-1.5 rounded-lg font-semibold text-slate-300 hover:bg-slate-800';
+  });
+  renderTranslator();
+}
+
+function renderTranslator() {
+  const labels = { plain: 'Plain-English Analogy', roi: 'Business & Profit ROI', spec: 'Audit-Ready Technical Spec' };
+  document.getElementById('translator-grid').innerHTML = TRANSLATOR.map(item => `
+    <div class="glass-card glass-card-hover rounded-xl p-5 flex flex-col justify-between">
+      <div>
+        <div class="flex items-center justify-between gap-2 mb-2">
+          <span class="text-xs font-mono px-2 py-0.5 rounded bg-emerald-500/15 text-emerald-300 border border-emerald-500/30">${item.badge}</span>
+          <span class="text-[11px] font-mono text-slate-400">${labels[state.lens]}</span>
+        </div>
+        <h3 class="text-sm font-bold text-white mb-2">${item.title}</h3>
+        <p class="text-xs text-slate-300 leading-relaxed">${item[state.lens]}</p>
+      </div>
+    </div>
+  `).join('');
+}
+
+function renderRejected() {
+  document.getElementById('rejected-grid').innerHTML = REJECTED.map(r => `
+    <div class="glass-card rounded-xl p-5 space-y-2.5 border-slate-800">
+      <div class="text-sm font-bold text-white flex items-center justify-between">
+        <span>${r.title}</span>
+        <span class="text-[10px] font-mono uppercase px-2 py-0.5 rounded bg-rose-500/15 text-rose-300 border border-rose-500/30">Audited &amp; Rejected</span>
+      </div>
+      <div class="text-xs text-slate-400"><strong class="text-slate-200">Why It Sounded Good:</strong> ${r.pros}</div>
+      <div class="text-xs text-rose-300 bg-rose-950/30 border border-rose-500/30 p-2.5 rounded-lg">${r.cons}</div>
+      <div class="text-xs text-emerald-300 bg-emerald-950/30 border border-emerald-500/30 p-2.5 rounded-lg">${r.built}</div>
+    </div>
+  `).join('');
+}
+
+function renderFlow() {
+  document.getElementById('flow-grid').innerHTML = FLOW.map(f => {
+    const active = f.step === state.activeStep;
+    return `
+      <div onclick="state.activeStep=${f.step};renderFlow()" class="cursor-pointer p-3.5 rounded-xl border transition ${active ? 'bg-emerald-500/15 border-emerald-400' : 'bg-slate-900/80 border-slate-800 hover:border-slate-700'}">
+        <div class="flex items-center justify-between text-[11px] font-mono mb-1">
+          <span class="${active ? 'text-emerald-300 font-bold' : 'text-slate-400'}">STEP 0${f.step}</span>
+          <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300">${f.tag}</span>
+        </div>
+        <div class="text-xs font-bold text-white">${f.title}</div>
+      </div>`;
+  }).join('');
+  const cur = FLOW.find(x => x.step === state.activeStep);
+  document.getElementById('flow-detail').innerHTML = `
+    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+      <div class="text-sm font-bold text-emerald-300">${cur.title}</div>
+      <span class="text-xs font-mono px-2.5 py-1 rounded bg-emerald-500/15 text-emerald-300 border border-emerald-500/30">${cur.tag}</span>
+    </div>
+    <p class="text-xs sm:text-sm text-slate-200 mt-2 leading-relaxed">${cur.desc}</p>`;
+}
+
+function simulatePath(type) {
+  if (type === 'mild') state.activeStep = 4;
+  if (type === 'clinical') state.activeStep = 5;
+  if (type === 'crisis') state.activeStep = 2;
+  renderFlow();
+}
+
+function renderModels() {
+  document.getElementById('models-grid').innerHTML = MODELS.map((m, idx) => `
+    <div class="glass-card rounded-xl p-4 flex flex-col justify-between ${idx === 1 ? 'border-emerald-500/60 bg-emerald-950/15' : ''}">
+      <div>
+        <div class="text-[11px] font-mono uppercase ${idx === 1 ? 'text-emerald-400 font-bold' : 'text-indigo-300'}">${m.tier}</div>
+        <div class="text-sm font-bold text-white mt-1">${m.name}</div>
+        <div class="text-xs font-mono text-emerald-300 mt-2">${m.build}</div>
+        <div class="text-[11px] text-amber-300 font-mono mt-0.5">Hosting: ${m.opex}</div>
+        <div class="text-xs text-slate-400 mt-2"><strong>Hardware:</strong> ${m.hw}</div>
+        <p class="text-xs text-slate-300 mt-2">${m.best}</p>
+      </div>
+    </div>
+  `).join('');
+}
+
+function runPipeline(val) {
+  const notes = Number(val);
+  document.getElementById('notes-count-lbl').textContent = notes.toLocaleString('en-IN') + ' Doctor Notes';
+  const rawTokensM = (notes * 2000) / 1e6;
+  const epochTokensM = rawTokensM * 4;
+  const scrubHrs = Math.round((notes / 50000) * 14 * 10) / 10;
+  const sftHrs70B = Math.round((notes / 50000) * 35 * 10) / 10;
+  const computeINR = Math.round((notes / 50000) * 69500);
+  document.getElementById('pipeline-stats').innerHTML = `
+    <div class="p-3 rounded-lg bg-slate-900 border border-slate-800"><div class="text-[10px] font-mono text-slate-400">RAW CLINICAL TOKENS</div><div class="text-sm font-bold text-white mt-0.5">${rawTokensM.toFixed(0)}M Tokens</div></div>
+    <div class="p-3 rounded-lg bg-slate-900 border border-slate-800"><div class="text-[10px] font-mono text-slate-400">4-EPOCH SFT + DPO</div><div class="text-sm font-bold text-indigo-300 mt-0.5">${epochTokensM.toFixed(0)}M Tokens</div></div>
+    <div class="p-3 rounded-lg bg-slate-900 border border-slate-800"><div class="text-[10px] font-mono text-slate-400">NER PII SCRUB + JUDGE</div><div class="text-sm font-bold text-emerald-300 mt-0.5">${scrubHrs} GPU Hrs</div></div>
+    <div class="p-3 rounded-lg bg-slate-900 border border-slate-800"><div class="text-[10px] font-mono text-slate-400">8x H100 TRAINING TIME</div><div class="text-sm font-bold text-amber-300 mt-0.5">${sftHrs70B} Hrs</div></div>
+    <div class="p-3 rounded-lg bg-slate-900 border border-slate-800"><div class="text-[10px] font-mono text-slate-400">EST. RETRAINING COMPUTE</div><div class="text-sm font-bold text-emerald-400 mt-0.5">${INR(computeINR)}</div></div>
+  `;
+}
+
+function selectBaseTier(tierKey) {
+  state.baseTier = tierKey;
+  if (tierKey === 'tier1') {
+    state.addons = new Set(ADDONS.filter(a => a.id !== 'SOV-235B').map(a => a.id));
+  } else if (tierKey === 'tier3') {
+    state.addons.clear();
+  }
+  renderBlueprint();
+}
+
+function toggleAddon(id) {
+  if (state.baseTier === 'tier3') state.baseTier = 'tier2';
+  if (state.addons.has(id)) state.addons.delete(id);
+  else state.addons.add(id);
+  renderBlueprint();
+}
+
+function clearAllAddons() {
+  state.baseTier = 'tier2';
+  state.addons.clear();
+  renderBlueprint();
+}
+
+function handleDragStart(ev, id) {
+  ev.dataTransfer.setData('text/plain', id);
+}
+function handleDragOver(ev) {
+  ev.preventDefault();
+  document.getElementById('drop-zone').classList.add('drop-active');
+}
+function handleDragLeave() {
+  document.getElementById('drop-zone').classList.remove('drop-active');
+}
+function handleDrop(ev) {
+  ev.preventDefault();
+  document.getElementById('drop-zone').classList.remove('drop-active');
+  const id = ev.dataTransfer.getData('text/plain');
+  if (id) {
+    if (state.baseTier === 'tier3') state.baseTier = 'tier2';
+    state.addons.add(id);
+    renderBlueprint();
+  }
+}
+
+function renderBlueprint() {
+  ['tier3', 'tier2', 'tier1'].forEach(k => {
+    const b = document.getElementById('btn-' + k);
+    b.className = state.baseTier === k
+      ? 'px-3.5 py-2 rounded-xl text-xs font-bold border border-emerald-400 bg-emerald-500 text-slate-950 shadow-lg'
+      : 'px-3.5 py-2 rounded-xl text-xs font-bold border border-slate-700 bg-slate-900 text-slate-300 hover:border-slate-500';
+  });
+
+  document.getElementById('base-ws-table').innerHTML = WORKSTREAMS_META.map((w, i) => `
+    <tr class="hover:bg-slate-900/60">
+      <td class="p-3 font-semibold text-white">${w.title}</td>
+      <td class="p-3 text-slate-300"><div class="font-mono font-bold text-slate-200">${INR(BASE_TIERS.tier3.ws[i])}</div><div class="text-[11px] text-slate-400 mt-0.5">${w.t3}</div></td>
+      <td class="p-3 bg-emerald-500/5 border-x border-emerald-500/20 text-slate-200"><div class="font-mono font-bold text-emerald-400">${INR(BASE_TIERS.tier2.ws[i])}</div><div class="text-[11px] text-slate-300 mt-0.5">${w.t2}</div></td>
+      <td class="p-3 text-slate-300"><div class="font-mono font-bold text-indigo-300">${INR(BASE_TIERS.tier1.ws[i])}</div><div class="text-[11px] text-slate-400 mt-0.5">${w.t1}</div></td>
+    </tr>
+  `).join('');
+
+  document.getElementById('addons-catalog').innerHTML = ADDONS.map(a => {
+    const sel = state.addons.has(a.id);
+    return `
+      <div draggable="true" ondragstart="handleDragStart(event, '${a.id}')" class="p-3.5 rounded-xl border transition cursor-grab active:cursor-grabbing flex flex-col justify-between ${sel ? 'bg-indigo-950/40 border-indigo-400' : 'bg-slate-900/90 border-slate-800 hover:border-slate-700'}">
+        <div>
+          <div class="flex items-center justify-between gap-2 text-[11px] font-mono">
+            <span class="px-2 py-0.5 rounded bg-slate-800 text-indigo-300">${a.ws} • ${a.id}</span>
+            <span class="font-bold text-emerald-400">+ ${INR(a.price)}</span>
+          </div>
+          <div class="text-xs font-bold text-white mt-1.5">${a.title}</div>
+          <p class="text-[11px] text-slate-300 mt-1">${a.plain}</p>
+          <p class="text-[10px] text-emerald-300/90 mt-1"><strong>ROI:</strong> ${a.roi}</p>
+        </div>
+        <button onclick="toggleAddon('${a.id}')" class="mt-3 w-full py-1.5 rounded-lg text-xs font-bold transition ${sel ? 'bg-rose-500/20 text-rose-300 border border-rose-500/40' : 'bg-emerald-500/15 text-emerald-300 border border-emerald-500/30 hover:bg-emerald-500 text-slate-950'}">
+          ${sel ? '✓ Added to Blueprint (Click to Remove)' : '+ Add to Tier 2 Blueprint'}
+        </button>
+      </div>`;
+  }).join('');
+
+  const baseObj = state.baseTier === 'tier3' ? BASE_TIERS.tier3 : BASE_TIERS.tier2;
+  const activeAddons = ADDONS.filter(a => state.addons.has(a.id));
+  const addonsSum = activeAddons.reduce((acc, x) => acc + x.price, 0);
+  const mascotObj = MASCOT.find(m => m.id === state.mascotId) || MASCOT[0];
+  const grandTotal = baseObj.price + addonsSum + mascotObj.price;
+
+  document.getElementById('active-tier-title').textContent = baseObj.name;
+  document.getElementById('active-base-price').textContent = INR(baseObj.price);
+
+  const listEl = document.getElementById('selected-addons-list');
+  if (activeAddons.length === 0) {
+    listEl.innerHTML = `<div class="p-4 rounded-xl bg-slate-900/60 border border-slate-800 text-xs text-slate-400 text-center">No extra Flagship add-ons selected. Pure ${baseObj.name} active.</div>`;
+  } else {
+    listEl.innerHTML = activeAddons.map(a => `
+      <div class="p-2.5 rounded-lg bg-slate-900 border border-indigo-500/30 flex items-center justify-between gap-2 text-xs">
+        <div><span class="font-mono text-indigo-300">[${a.id}]</span> <span class="font-semibold text-white">${a.title}</span></div>
+        <div class="flex items-center gap-2 shrink-0">
+          <span class="font-mono text-emerald-400">+${INR(a.price)}</span>
+          <button onclick="toggleAddon('${a.id}')" class="text-rose-400 hover:text-rose-300 font-bold px-1">&times;</button>
+        </div>
+      </div>`).join('');
+  }
+
+  document.getElementById('sum-base').textContent = INR(baseObj.price);
+  document.getElementById('sum-addon-count').textContent = activeAddons.length;
+  document.getElementById('sum-addons').textContent = '+ ' + INR(addonsSum);
+  document.getElementById('sum-mascot').textContent = '+ ' + INR(mascotObj.price);
+  document.getElementById('sum-grand').textContent = INR(grandTotal);
+
+  document.getElementById('bar-tier-name').textContent = `${state.baseTier === 'tier3' ? 'Tier 3 Base' : 'Tier 2 Base'} + ${activeAddons.length} Flagship Add-Ons`;
+  document.getElementById('bar-total').textContent = INR(grandTotal);
+  document.getElementById('bar-milestone').textContent = INR(Math.round(grandTotal / 4)) + ' / phase';
+}
+
+function renderMascot() {
+  document.getElementById('mascot-grid').innerHTML = MASCOT.map(m => {
+    const sel = state.mascotId === m.id;
+    return `
+      <div onclick="state.mascotId='${m.id}';renderMascot();renderBlueprint()" class="cursor-pointer glass-card rounded-xl p-4 flex flex-col justify-between transition ${sel ? 'border-amber-400 bg-amber-500/10' : 'hover:border-slate-700'}">
+        <div>
+          <div class="flex items-center justify-between text-xs font-mono">
+            <span class="text-amber-300">${m.sub}</span>
+            <span class="font-bold text-white">${m.price === 0 ? '+ ₹0' : '+ ' + INR(m.price)}</span>
+          </div>
+          <div class="text-sm font-bold text-white mt-1.5">${m.title}</div>
+          <p class="text-xs text-slate-300 mt-1.5">${m.desc}</p>
+        </div>
+        <div class="mt-3 text-xs font-bold ${sel ? 'text-amber-300' : 'text-slate-400'}">${sel ? '✓ Selected in Blueprint' : 'Click to Select'}</div>
+      </div>`;
+  }).join('');
+}
+
+function setUsageLoad(mult) {
+  state.usageLoad = mult;
+  document.getElementById('load-1x').className = mult === 1 ? 'px-3 py-1.5 rounded-lg font-semibold bg-emerald-500 text-slate-950' : 'px-3 py-1.5 rounded-lg font-semibold text-slate-300 hover:bg-slate-800';
+  document.getElementById('load-2x').className = mult === 2 ? 'px-3 py-1.5 rounded-lg font-semibold bg-amber-500 text-slate-950' : 'px-3 py-1.5 rounded-lg font-semibold text-amber-300 hover:bg-slate-800';
+  renderTCO();
+}
+
+function renderTCO() {
+  const mau = Number(document.getElementById('mau-select').value);
+  state.mau = mau;
+  const mult = state.usageLoad;
+
+  const tcoData = {
+    1000:  { dom: 2200, store: 850, aws: 9500,  ds: 1200 * mult, gpu: mult === 1 ? 12900 : 21500, tts: 2400 * mult, vid: 1800, otp: 1150, managedApiBomb: mult === 1 ? 38000 : 76000 },
+    2500:  { dom: 2200, store: 850, aws: 14500, ds: 2800 * mult, gpu: mult === 1 ? 30500 : 51000, tts: 5500 * mult, vid: 4200, otp: 2450, managedApiBomb: mult === 1 ? 95000 : 190000 },
+    10000: { dom: 4500, store: 850, aws: 32000, ds: 9500 * mult, gpu: mult === 1 ? 98000 : 159000, tts: 19000 * mult, vid: 14500, otp: 6650, managedApiBomb: mult === 1 ? 340000 : 680000 }
+  }[mau];
+
+  const totalSelfHosted = tcoData.dom + tcoData.store + tcoData.aws + tcoData.ds + tcoData.gpu + tcoData.tts + tcoData.vid + tcoData.otp;
+  const paidSubs = Math.round(mau * 0.15);
+  const subRev = paidSubs * 799;
+  const consults = Math.round(mau * 0.08);
+  const consultMargin = consults * 450;
+  const grossMargin = subRev + consultMargin;
+  const netProfitAfterOps = grossMargin - (totalSelfHosted + 45000);
+
+  document.getElementById('tco-view').innerHTML = `
+    <div class="lg:col-span-7 space-y-2 text-xs">
+      <div class="font-bold text-white mb-2">Itemized Monthly Infrastructure Pass-Through (${mau.toLocaleString('en-IN')} MAU • ${mult}x Usage Load)</div>
+      <div class="grid grid-cols-2 gap-2">
+        <div class="p-2.5 rounded-lg bg-slate-900 border border-slate-800 flex justify-between"><span>1. Domains &amp; Cloudflare WAF:</span><span class="font-mono">${INR(tcoData.dom)}</span></div>
+        <div class="p-2.5 rounded-lg bg-slate-900 border border-slate-800 flex justify-between"><span>2. Apple &amp; Play Store Fees:</span><span class="font-mono">${INR(tcoData.store)}</span></div>
+        <div class="p-2.5 rounded-lg bg-slate-900 border border-slate-800 flex justify-between"><span>3. AWS Mumbai Split-Vault RDS:</span><span class="font-mono">${INR(tcoData.aws)}</span></div>
+        <div class="p-2.5 rounded-lg bg-slate-900 border border-slate-800 flex justify-between"><span>4. DeepSeek Intake API:</span><span class="font-mono">${INR(tcoData.ds)}</span></div>
+        <div class="p-2.5 rounded-lg bg-slate-900 border border-emerald-500/30 flex justify-between"><span class="text-emerald-300 font-semibold">5. RunPod 70B Serverless GPU:</span><span class="font-mono text-emerald-400 font-bold">${INR(tcoData.gpu)}</span></div>
+        <div class="p-2.5 rounded-lg bg-slate-900 border border-slate-800 flex justify-between"><span>6. Neural Voice TTS Stream:</span><span class="font-mono">${INR(tcoData.tts)}</span></div>
+        <div class="p-2.5 rounded-lg bg-slate-900 border border-slate-800 flex justify-between"><span>7. Encrypted WebRTC Video:</span><span class="font-mono">${INR(tcoData.vid)}</span></div>
+        <div class="p-2.5 rounded-lg bg-slate-900 border border-slate-800 flex justify-between"><span>8. WhatsApp/SMS OTP &amp; Logs:</span><span class="font-mono">${INR(tcoData.otp)}</span></div>
+      </div>
+      <div class="p-3 rounded-xl bg-emerald-950/30 border border-emerald-500/40 flex justify-between items-center mt-2">
+        <span><strong>Total Monthly Cloud &amp; 70B GPU Bill:</strong> (vs. Rented Frontier APIs at ${mult}x load: <span class="line-through text-rose-400">${INR(tcoData.managedApiBomb)}/mo</span>)</span>
+        <span class="text-base font-mono font-extrabold text-emerald-400">${INR(totalSelfHosted)} / mo</span>
+      </div>
+    </div>
+    <div class="lg:col-span-5 p-4 rounded-xl bg-slate-900/90 border border-indigo-500/40 space-y-2.5 text-xs">
+      <div class="text-xs font-mono uppercase text-indigo-300">Commercial Revenue &amp; Break-Even Proof (Section 18)</div>
+      <div class="flex justify-between"><span>Paid Subscribers (15% of ${mau.toLocaleString('en-IN')} @ ₹799/mo):</span><span class="font-mono font-bold text-white">${INR(subRev)}/mo</span></div>
+      <div class="flex justify-between"><span>Doctor Consultations (${consults}/mo @ ₹450 net margin):</span><span class="font-mono font-bold text-white">${INR(consultMargin)}/mo</span></div>
+      <div class="flex justify-between border-t border-slate-800 pt-2"><span>Gross Monthly Platform Revenue:</span><span class="font-mono font-bold text-emerald-300">${INR(grossMargin)}/mo</span></div>
+      <div class="flex justify-between text-slate-400"><span>Less Cloud TCO (${INR(totalSelfHosted)}) + Essential Support (₹45,000):</span><span class="font-mono">-${INR(totalSelfHosted + 45000)}/mo</span></div>
+      <div class="flex justify-between border-t border-slate-800 pt-2 text-sm font-extrabold text-emerald-400">
+        <span>NET MONTHLY OPERATING PROFIT:</span>
+        <span class="font-mono">${netProfitAfterOps >= 0 ? '+' : ''}${INR(netProfitAfterOps)} / mo</span>
+      </div>
+      <div class="text-[11px] text-slate-400 pt-1"><strong>Break-Even Point:</strong> Platform breaks even on all cloud + support costs at just <strong>140 paying subscribers</strong>.</div>
+    </div>
+  `;
+}
+
+function renderRetainers() {
+  const plans = [
+    { id: 'planA', name: 'Plan A: Essential Clinical Ops', fee: '₹45,000 / mo', sla: '99.5% Uptime • Sev-1 <2 hrs • 10 Dev Hrs/mo', desc: 'iOS/Android SDK updates, monthly KMS security patching, automated backup drills & AI service monitoring.' },
+    { id: 'planB', name: 'Plan B: Growth Pro AI & DevSecOps ★', fee: '₹75,000 / mo', sla: '99.7% Uptime • Sev-1 <1 hr • 25 Dev Hrs/mo', desc: 'Includes Plan A + monthly AI guardrail & false-positive calibration with doctors, GPU cost tuning & OWASP scans.' },
+    { id: 'planC', name: 'Plan C: Enterprise 24/7 Scale', fee: '₹1,25,000 / mo', sla: '99.9% Uptime • Sev-1 <30m • 45 Dev Hrs/mo', desc: 'Includes Plan B + quarterly 50k-note LoRA/DPO model retraining execution & 24/7 priority engineering SLA.' }
+  ];
+  document.getElementById('retainer-grid').innerHTML = plans.map(p => `
+    <div class="p-4 rounded-xl bg-slate-900/90 border border-slate-800 space-y-1">
+      <div class="flex justify-between items-center"><span class="text-xs font-bold text-white">${p.name}</span><span class="text-xs font-mono font-bold text-emerald-400">${p.fee}</span></div>
+      <div class="text-[11px] font-mono text-indigo-300">${p.sla}</div>
+      <p class="text-xs text-slate-400 pt-1">${p.desc}</p>
+    </div>
+  `).join('');
+}
+
+function renderChecklist() {
+  const pillars = [
+    { title: '1. Functional & Completeness Testing', desc: '100% completion of mandatory Stage 1 & 2 questions; Free Preliminary Results shown before Paywall.' },
+    { title: '2. 4D Clinical Assessment Concordance', desc: '50+ clinician-reviewed scenarios verified across Severity, Functional Impairment, Urgency & Safety Override.' },
+    { title: '3. Crisis, Offline & Outage Safety', desc: 'Direct/indirect/Hinglish self-harm (<50ms), primary LLM outage failover (<200ms) & human duty officer backup timer.' },
+    { title: '4. AI Quality & Boundary Adherence', desc: 'Zero psychiatric diagnostic claims, structured 2–4 week goal module adherence & dependency guardrail checks.' },
+    { title: '5. Split-Vault, PII Scrubber & VAPT', desc: 'Pre-Inference NER PII scrubber verified, backup restore drill passed & external CERT-In Safe-to-Host Certificate issued.' },
+    { title: '6. Complete 10-Item IP & Cloud Handover', desc: '100% client ownership of Source Code, Figma UI, JSON Rules, Prompts, Schemas, Terraform, Domains, Cloud & 70B Model Weights.' }
+  ];
+  document.getElementById('checklist-grid').innerHTML = pillars.map(c => `
+    <div class="p-3.5 rounded-xl bg-slate-900/80 border border-emerald-500/30 space-y-1">
+      <div class="text-xs font-bold text-emerald-300 flex items-center gap-1.5"><span>✓</span> ${c.title}</div>
+      <p class="text-[11px] text-slate-300">${c.desc}</p>
+    </div>
+  `).join('');
+}
+
+function exportBlueprint() {
+  const baseObj = state.baseTier === 'tier3' ? BASE_TIERS.tier3 : BASE_TIERS.tier2;
+  const activeAddons = ADDONS.filter(a => state.addons.has(a.id));
+  const addonsSum = activeAddons.reduce((acc, x) => acc + x.price, 0);
+  const mascotObj = MASCOT.find(m => m.id === state.mascotId) || MASCOT[0];
+  const grandTotal = baseObj.price + addonsSum + mascotObj.price;
+
+  document.getElementById('print-sheet').innerHTML = `
+    <h1 style="font-size:20px;font-weight:bold;margin-bottom:4px;">SAATHI AI — Custom Configured Architecture & Commercial Specification</h1>
+    <p style="font-size:12px;color:#475569;margin-bottom:16px;">Generated from Interactive Executive Configurator • All prices fixed in INR (Excl. GST)</p>
+    <hr style="margin-bottom:12px;"/>
+    <h2 style="font-size:15px;font-weight:bold;">1. Selected Base Architecture: ${baseObj.name} — ${INR(baseObj.price)}</h2>
+    <h2 style="font-size:15px;font-weight:bold;margin-top:12px;">2. Selected Flagship Upgrade Modules (${activeAddons.length}): + ${INR(addonsSum)}</h2>
+    <ul>${activeAddons.map(a => `<li style="font-size:12px;margin:4px 0;"><strong>[${a.id}] ${a.title}:</strong> + ${INR(a.price)} — ${a.plain}</li>`).join('')}</ul>
+    <h2 style="font-size:15px;font-weight:bold;margin-top:12px;">3. Selected Mascot Option: ${mascotObj.title} (${INR(mascotObj.price)})</h2>
+    <hr style="margin:14px 0;"/>
+    <h2 style="font-size:18px;font-weight:bold;">TOTAL CONFIGURED ONE-TIME INVESTMENT: ${INR(grandTotal)}</h2>
+    <p style="font-size:12px;">4x 25% Acceptance-Gated Milestones: <strong>${INR(Math.round(grandTotal / 4))} per phase</strong> (Final 25% conditional on passing all 6 Acceptance Pillars).</p>
+  `;
+  window.print();
+}
+
+window.addEventListener('DOMContentLoaded', () => {
+  renderCapacity('saathi');
+  renderTranslator();
+  renderRejected();
+  renderFlow();
+  renderModels();
+  runPipeline(50000);
+  renderBlueprint();
+  renderMascot();
+  renderTCO();
+  renderRetainers();
+  renderChecklist();
+  if (window.lucide) lucide.createIcons();
+});
+</script>
+</body>
+</html>
